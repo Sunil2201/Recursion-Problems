@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Maze {
     public static void main(String[] args) {
-//        System.out.println(count(3,3));
+        System.out.println(count(3,3));
 //        ArrayList<String> list =  pathList("", 3, 3);
 //        System.out.println(list);
 //        System.out.println(pathListDiagonal("", 3, 3));
-        boolean [][] board = {
-            {true, true, true},
-            {true, false, true},
-            {true, true, true}
-        };
-        pathRestrictions("", board, 0, 0);
+//        boolean [][] board = {
+//            {true, true, true},
+//            {true, false, true},
+//            {true, true, true}
+//        };
+//        pathRestrictions("", board, 0, 0);
     }
     static int count(int r, int c){
         if(r==1 || c==1){

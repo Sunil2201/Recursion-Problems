@@ -8,9 +8,10 @@ public class SubSet {
     public static void main(String[] args) {
         int[] arr = {1,2,2};
         List<List<Integer>> ans = subsetDuplicate(arr);
-        for(List<Integer> list : ans){
-            System.out.println(list);
-        }
+//        for(List<Integer> list : ans){
+//            System.out.println(list);
+//        }
+        System.out.println(ans);
     }
      static List<List<Integer>> subset(int[] arr){
          List<List<Integer>> outer = new ArrayList<>();
