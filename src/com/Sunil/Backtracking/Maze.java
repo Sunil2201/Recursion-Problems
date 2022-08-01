@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class Maze {
     public static void main(String[] args) {
-        System.out.println(count(3,3));
-//        ArrayList<String> list =  pathList("", 3, 3);
-//        System.out.println(list);
+//        System.out.println(count(3,3));
+//        path("", 3,3);
+        ArrayList<String> list =  pathList("", 3, 3);
+        System.out.println(list);
 //        System.out.println(pathListDiagonal("", 3, 3));
 //        boolean [][] board = {
 //            {true, true, true},
@@ -28,7 +29,6 @@ public class Maze {
             System.out.println(p);
             return;
         }
-
         if(r>1){
             path(p+'D', r-1, c);
         }
@@ -36,6 +36,7 @@ public class Maze {
             path(p+'R', r, c-1);
         }
     }
+
     static ArrayList<String> pathList(String p, int r, int c){
         if(r==1 && c==1){
             ArrayList<String> list = new ArrayList<>();

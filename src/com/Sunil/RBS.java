@@ -2,7 +2,8 @@ package com.Sunil;
 
 public class RBS {
     public static void main(String[] args) {
-
+        int[] arr = {2,4,6,8,12,14};
+        System.out.println(search(arr, 8, 0,arr.length-1));
     }
     static int search(int[] arr, int target, int s, int e){
         if(s>e){

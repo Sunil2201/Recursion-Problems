@@ -9,9 +9,9 @@ public class AllPaths {
                 {true, true, true},
                 {true, true, true}
         };
-//        allPaths("", board, 0, 0);
-        int[][] path = new int[board.length][board[0].length];
-        allPathPrint("", board, 0, 0, path, 1);
+        allPaths("", board, 0, 0);
+//        int[][] path = new int[board.length][board[0].length];
+//        allPathPrint("", board, 0, 0, path, 1);
     }
     static void allPaths(String p, boolean[][] maze, int r, int c){
         if(r==maze.length - 1 && c==maze[0].length - 1){
