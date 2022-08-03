@@ -1,7 +1,7 @@
 package com.Sunil.Backtracking;
 
-public class SudokuSolver {
-    public static void main(String[] args){
+public class SudokuSolverRevisit {
+    public static void main(String[] args) {
         int[][] board = new int[][]{
                 {3, 0, 6, 5, 0, 8, 4, 0, 0},
                 {5, 2, 0, 0, 0, 0, 0, 0, 0},
@@ -13,6 +13,7 @@ public class SudokuSolver {
                 {0, 0, 0, 0, 0, 0, 0, 7, 4},
                 {0, 0, 5, 2, 0, 6, 3, 0, 0}
         };
+
         if(solve(board)) {
             display(board);
         } else {
@@ -27,8 +28,9 @@ public class SudokuSolver {
 
         boolean emptyLeft = true;
 
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
+        // this is how we are replacing the r,c from arguments and checking for elements if they in the block
+        for (int i = 0; i<n; i++){
+            for (int j = 0; j < n; j++) {
                 if(board[i][j] == 0){
                     row = i;
                     col = j;
@@ -36,32 +38,33 @@ public class SudokuSolver {
                     break;
                 }
             }
-            // if found some empty element in row, then break
+            // If found some empty element in row, then break
             if(emptyLeft == false){
                 break;
             }
         }
+
         if(emptyLeft == true){
             return true;
             // sudoku is solved
         }
 
-        // backtrack
-        for(int number = 1; number <= 9; number++){
-            if(isSafe(board, row, col, number)){
-                board[row][col] = number;
+        //backtrack
+        for (int num = 1; num <= 9 ; num++) {
+            if(isSafe(board, row, col, num)){
+                board[row][col] = num;
                 if(solve(board)){
-                    // Found the answer
                     return true;
                 }
                 else{
-                    //Backtrack
-                    board[row][col] = 0;
+                    // backtrack
+                    board [row][col] = 0;
                 }
             }
         }
         return false;
     }
+
     private static void display(int[][] board) {
         for(int[] row : board) {
             for(int num : row) {
@@ -70,32 +73,35 @@ public class SudokuSolver {
             System.out.println();
         }
     }
-    static boolean isSafe(int [][] board, int row, int col, int num){
-        // check the row
-        for(int i=0; i< board.length; i++){
-            // check if the num is in the row
+
+    static boolean isSafe(int[][] board, int row, int col, int num){
+
+        // Check the row
+        for(int i=0; i<board.length; i++){
             if(board[row][i] == num){
                 return false;
             }
         }
-        // check the col
-        for(int[] nums : board){
+
+        // Check the column
+        for (int[] nums : board){
             if(nums[col] == num){
                 return false;
             }
         }
 
-        int sqrt = (int)(Math.sqrt(board.length));
-        int rowStart = row - row % sqrt;
-        int colStart = col - col % sqrt;
+        int sqrt = (int)Math.sqrt(board.length);
+        int rowStart = row - row%sqrt;
+        int colStart = col - col%sqrt;
 
-        for(int r=rowStart; r<rowStart + sqrt; r++){
-            for(int c = colStart; c<colStart + sqrt; c++){
+        for (int r = rowStart; r < rowStart+sqrt; r++) {
+            for (int c = colStart; c < colStart+sqrt; c++) {
                 if(board[r][c] == num){
                     return false;
                 }
             }
         }
+
         return true;
     }
 }
